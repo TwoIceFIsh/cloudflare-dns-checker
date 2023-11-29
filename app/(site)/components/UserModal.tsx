@@ -20,7 +20,6 @@ const UserModal: React.FC<ModalProps> = ({OnClick}) => {
 
         await fetch("/api/save/" + apiKey)
             .then(async (result) => {
-                console.log(await result.json());
                 location.href = "/";
             })
             .catch(async () => {

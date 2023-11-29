@@ -10,7 +10,6 @@ export async function GET() {
         },
     });
     const data = await res.json();
-    console.log(data)
     try {
         const extractedData = data.result.map((item: { id: any; name: any }) => {
             return {
