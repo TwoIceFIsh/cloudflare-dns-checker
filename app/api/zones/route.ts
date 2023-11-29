@@ -3,10 +3,11 @@ import prismadb from "@/lib/prismadb";
 
 export async function GET() {
     const kKey = await prismadb.template.findFirst({where: {kId: 1}})
+    if (kKey === null) return NextResponse.json({result: false, reason: 'no key'});
     const res = await fetch("https://api.cloudflare.com/client/v4/zones", {
         headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + kKey?.kKey,
+            Authorization: "Bearer " + kKey.kKey,
         },
     });
     const data = await res.json();

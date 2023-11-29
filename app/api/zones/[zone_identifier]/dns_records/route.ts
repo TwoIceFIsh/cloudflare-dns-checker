@@ -18,7 +18,7 @@ export async function GET(
                 },
             );
             const data = await res.json();
-
+            console.log(data)
             const filteredData = data.result.filter(
                 (item: { type: string }) =>
                     item.type === "CNAME" || item.type === "A" || item.type === "AAAA",
