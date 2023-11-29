@@ -18,16 +18,9 @@ const Sidebar = () => {
     const [needApi, setNeedApi] = useState<boolean>(false);
 
     const GetDomainList = async () => {
-        await fetch("/api/zones")
-            .then(async (result) => {
-                setDomainList(await result.json());
-                setLoading(false); // API 호출이 완료되면 로딩 상태를 false로 변경
-            })
-            .catch((error) => {
-                setDomainList([{id: "a", name: "a"},]);
-                setNeedApi(true);
-                setLoading(true); // API 호출 중 오류가 발생해도 로딩 상태를 false로 변경
-            });
+        const data = await fetch("/api/zones")
+        setDomainList(await data.json());
+        setLoading(false);
     };
 
     useEffect(() => {

@@ -20,6 +20,6 @@ export async function GET() {
         });
         return NextResponse.json(extractedData);
     } catch (err) {
-        return NextResponse.json({result: false, reason: err});
+        return NextResponse.json([]);
     }
 }
