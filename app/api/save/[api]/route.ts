@@ -1,9 +1,6 @@
 import fs from "fs";
 import {NextResponse} from "next/server";
-import {PrismaClient} from "@prisma/client";
 import prismadb from "@/lib/prismadb";
-
-const prisma = new PrismaClient();
 
 
 export async function GET(
@@ -13,11 +10,11 @@ export async function GET(
     try {
         const result = await prismadb.template.findFirst({})
         if (result === null) {
-            await prisma.template.create({
+            await prismadb.template.create({
                 data: {kKey: params.api}
             })
         } else {
-            await prisma.template.update({
+            await prismadb.template.update({
                 where: {kId: 1},
                 data: {kKey: params.api}
             })

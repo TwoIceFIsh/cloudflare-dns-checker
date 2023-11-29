@@ -25,6 +25,7 @@ const Sidebar = () => {
                 setLoading(false); // API 호출이 완료되면 로딩 상태를 false로 변경
             })
             .catch((error) => {
+                setDomainList([]);
                 setNeedApi(true);
                 setLoading(false); // API 호출 중 오류가 발생해도 로딩 상태를 false로 변경
             });
