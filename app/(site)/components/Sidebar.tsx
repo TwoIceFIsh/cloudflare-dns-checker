@@ -13,7 +13,6 @@ interface DomainItemProps {
 const Sidebar = () => {
     const [DomainList, setDomainList] = useState<DomainItemProps[]>([
         {id: "a", name: "a"},
-        {id: "b", name: "b"},
     ]);
     const [loading, setLoading] = useState(true);
     const [needApi, setNeedApi] = useState<boolean>(false);
@@ -25,9 +24,9 @@ const Sidebar = () => {
                 setLoading(false); // API 호출이 완료되면 로딩 상태를 false로 변경
             })
             .catch((error) => {
-                setDomainList([]);
+                setDomainList([{id: "a", name: "a"},]);
                 setNeedApi(true);
-                setLoading(false); // API 호출 중 오류가 발생해도 로딩 상태를 false로 변경
+                setLoading(true); // API 호출 중 오류가 발생해도 로딩 상태를 false로 변경
             });
     };
 

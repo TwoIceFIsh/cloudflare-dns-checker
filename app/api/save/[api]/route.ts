@@ -13,14 +13,15 @@ export async function GET(
             await prismadb.template.create({
                 data: {kKey: params.api}
             })
+            return NextResponse.json({result: 'created'});
         } else {
             await prismadb.template.update({
                 where: {kId: 1},
                 data: {kKey: params.api}
             })
+            return NextResponse.json({result: 'updated'});
         }
-        return NextResponse.json({success: true});
     } catch (error) {
-        return NextResponse.json({success: false});
+        return NextResponse.json({result: 'error'});
     }
 }
