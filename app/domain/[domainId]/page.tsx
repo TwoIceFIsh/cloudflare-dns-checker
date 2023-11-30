@@ -18,7 +18,7 @@ export default function Home({ params }: { params: { domainId: string } }) {
     const GetRecordList = async () => {
       try {
         const result = await axios.get(
-          "/api/zones/" + params.domainId + "/dns_records",
+          "/api/zones/" + params.domainId + "/dns_records"
         );
         setRecordList(result.data);
       } catch (error) {
@@ -49,9 +49,9 @@ export default function Home({ params }: { params: { domainId: string } }) {
           <div
             className={"flex justify-between bg-green-200 p-4 mb-2 font-bold"}
           >
-            <div className={"flex-1"}>Status</div>
+            <div className={"flex-1"}>DNS Query</div>
             <div className={"flex-auto text-center"}>Domain</div>
-            <div className={"flex-1 text-end"}>Result/Detail</div>
+            <div className={"flex-1 text-end"}>Access Type</div>
           </div>
 
           <div className={"flex flex-col"}>
