@@ -1,7 +1,7 @@
 import dns from "dns";
 import { NextResponse } from "next/server";
 import isIPInRanges from "@/app/Functions/VerifyIpRange";
-
+export const dynamic = 'force-dynamic'
 async function resolveDns(type: string, domain: string): Promise<string[]> {
   return new Promise<string[]>((resolve, reject) => {
     let dnsFunction;

@@ -2,7 +2,7 @@ import fs from "fs";
 import {NextResponse} from "next/server";
 import prismadb from "@/lib/prismadb";
 
-
+export const dynamic = 'force-dynamic'
 export async function GET(
     request: Request,
     {params}: { params: { api: string } },

@@ -1,6 +1,7 @@
 import {NextResponse} from "next/server";
 import prismadb from "@/lib/prismadb";
 
+export const dynamic = 'force-dynamic'
 export async function GET() {
     const kKey = await prismadb.template.findFirst({where: {kId: 1}})
     if (kKey === null) return NextResponse.json({result: false, reason: 'no key'});
