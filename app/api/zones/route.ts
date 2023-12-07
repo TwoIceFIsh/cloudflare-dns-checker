@@ -9,7 +9,7 @@ export async function GET() {
         headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + kKey.kKey,
-        },
+        },cache:"no-store"
     });
     const data = await res.json();
     try {
